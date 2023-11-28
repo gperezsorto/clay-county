@@ -29,6 +29,8 @@ The alternative I would recommend using is SQLite.
 
 SQLite is a lightweight and open source alternative to MySQL. SQLite is simple and straightforward to install on any platform, and produces a consistent environment on each platform. The quantity of data and the likely bandwidth of queries that this project will produce is well within the scope of SQLite's capabilities.
 
+As a result of using SQLite, the back-server and the database server would be contained within the same instance.
+
 ### Back-end Server (API)
 
 The function of the back-end server is to access the data within the database and serve it in a digestible manner to the front-end code. Again, through K-State, we were provided with a virtual machine equipped with a php server that would allow us to write and run a back-end and front-end written in php that could access our database within our virtual machine. The same limitations with the virtual machines mentioned above apply here. In my experience, deploying a local php server is rather cumbersome. Quickly surveying the other members in my group, it is clear that none of my teammates have any experience using php.

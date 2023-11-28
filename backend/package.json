@@ -1,0 +1,19 @@
+{
+  "name": "clay-county-maps-server",
+  "version": "0.1.0",
+  "description": "Clay County Interactive Maps backend server",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "logno",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6"
+  }
+}
