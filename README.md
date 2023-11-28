@@ -40,3 +40,19 @@ We would use Express.js to generate a RESTful API that would consume the paramet
 ### Front-end
 
 A front-end framework is not necessary for a project of this scope. The needs of this project can easily be met using vanilla JavaScript and potentially using an HTML canvas.
+
+## Challenges
+
+### Mapping regions of the rasterized map images
+
+In order to generate an interactive map, we must map out the regions that are referenced in the data. This poses a challenge because there is no way to programmatically generate the regions due to either the imperfections of the maps themselves or geographical abnormalities within region. In other words, the regions are not perfect grid blocks that can be created with a nested for loop.
+
+Another challenge is that the images are rasterized and may be rendered at different resolutions depending on the device the app is viewed on. So we cannot map the regions based on pixel locations, they must be mapped using some sort of relative scale such as percentage.
+
+#### Solution
+
+One solution I have come up with is to create a tool that allows us to interpret the data and click the outer bounds of the region within the map returning the mappings in a JSON format. These mappings could either be stored directly in the front-end code or within their own table in the database that is pulled at the time of render.
+
+### Data handling
+
+With the sample amount of data we were given, we could realistically put the entirety of the data in the front-end in the form of an array of objects. But this method would not scale well at all, loading times would quickly go through the roof. So we will certainly pull the data from the database per needed request. We should then cache the data in local storage.
