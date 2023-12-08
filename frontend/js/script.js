@@ -2,11 +2,11 @@ const table = document.getElementById('info')
 const sec = document.getElementById('sec')
 const loading = document.createElement('option').textContent = 'Loading...'
 
-// this function will get data from the localhost:3000/api
+// this function will get data from the claycountymap.onrender.com/api
 // and display it in the table
 
 async function getList(filter) {
-  const response = await fetch('http://localhost:3000/api/filter/' + filter, { method: 'GET' })
+  const response = await fetch('https://claycountymap.onrender.com/api/filter/' + filter, { method: 'GET' })
     .then((res) => {
       sec.appendChild(loading)
       return res.json();
@@ -31,7 +31,7 @@ async function getList(filter) {
 getList('SEC')
 
 async function getData(filter, param) {
-  const response = await fetch('http://localhost:3000/api/' + filter + '/' + param, { method: 'GET' })
+  const response = await fetch('https://claycountymap.onrender.com/api/' + filter + '/' + param, { method: 'GET' })
     .then((res) => {
       return res.json();
     })
