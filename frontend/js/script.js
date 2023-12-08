@@ -1,5 +1,6 @@
 const table = document.getElementById('info')
 const sec = document.getElementById('sec')
+const loading = document.createElement('option').textContent = 'Loading...'
 
 // this function will get data from the localhost:3000/api
 // and display it in the table
@@ -7,9 +8,12 @@ const sec = document.getElementById('sec')
 async function getList(filter) {
   const response = await fetch('http://localhost:3000/api/filter/' + filter, { method: 'GET' })
     .then((res) => {
+      sec.appendChild(loading)
       return res.json();
     })
     .then((data) => {
+
+      sec.removeChild(loading)
 
       for (item of data) {
         if (item["SEC"] !== "") {
