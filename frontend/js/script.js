@@ -1,8 +1,7 @@
 const table = document.getElementById('info')
 const sec = document.getElementById('sec')
-const loading = document.createElement('option').textContent = 'Loading...'
+const loading = document.getElementById('loading')
 
-sec.appendChild(loading)
 // this function will get data from the claycountymap.onrender.com/api
 // and display it in the table
 
