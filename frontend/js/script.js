@@ -32,29 +32,50 @@ async function getData(filter, param) {
       return res.json();
     })
     .then((data) => {
-      console.log(data.length)
       for (item of data) {
         let row = document.createElement('tr')
         let date = document.createElement('td')
         let type = document.createElement('td')
+        let bk = document.createElement('td')
+        let page = document.createElement('td')
+        let qtr = document.createElement('td')
+        let sec = document.createElement('td')
+        let tsp = document.createElement('td')
+        let rge = document.createElement('td')
+        let lot = document.createElement('td')
+        let blk = document.createElement('td')
 
         date.textContent = item["DATE"]
-        type.textContent = item["SEC"]
+        type.textContent = item["TYPE"]
+        bk.textContent = item["BK"]
+        page.textContent = item["PAGE"]
+        qtr.textContent = item["QTR"]
+        sec.textContent = item["SEC"]
+        tsp.textContent = item["TSP"]
+        rge.textContent = item["RGE"]
+        lot.textContent = item["LOT"]
+        blk.textContent = item["BLK"]
 
         row.appendChild(date)
         row.appendChild(type)
+        row.appendChild(bk)
+        row.appendChild(page)
+        row.appendChild(qtr)
+        row.appendChild(sec)
+        row.appendChild(tsp)
+        row.appendChild(rge)
+        row.appendChild(lot)
+        row.appendChild(blk)
         table.appendChild(row)
       }
     })
     .catch((error) => console.error('Error:', error))
 
-  console.log(response)
 
 }
 
 sec.addEventListener('change', (e) => {
   table.innerHTML = ''
-  console.log(e.target.value)
   getData('sec', e.target.value)
 })
 
