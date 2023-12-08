@@ -6,7 +6,7 @@ const loading = document.getElementById('loading')
 // and display it in the table
 
 async function getList(filter) {
-  const response = await fetch('https://claycountymap.onrender.com/api/filter/' + filter, { method: 'GET' })
+  const response = await fetch('http://localhost:3000/api/filter/' + filter, { method: 'GET' })
     .then((res) => {
       return res.json();
     })
@@ -30,7 +30,7 @@ async function getList(filter) {
 getList('SEC')
 
 async function getData(filter, param) {
-  const response = await fetch('https://claycountymap.onrender.com/api/' + filter + '/' + param, { method: 'GET' })
+  const response = await fetch('http://localhost:3000/api/' + filter + '/' + param, { method: 'GET' })
     .then((res) => {
       return res.json();
     })
