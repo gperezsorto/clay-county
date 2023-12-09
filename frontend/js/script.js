@@ -1,11 +1,11 @@
+// declare globally used DOM elements
 const table = document.getElementById('info')
 const sec = document.getElementById('sec')
 const loading = document.getElementById('loading')
 
-// this function will get data from the claycountymap.onrender.com/api
-// and display it in the table
 
-async function getList(filter) {
+// function to get the list of SECs from the database and populate the dropdown menu.
+async function getList() {
   const response = await fetch('http://localhost:3000/api/filter/' + filter, { method: 'GET' })
     .then((res) => {
       return res.json();
@@ -27,8 +27,9 @@ async function getList(filter) {
     .catch((error) => console.error('Error:', error))
 }
 
-getList('SEC')
+getList()
 
+// function to get the data from the database and populate the table based on the selected filter value
 async function getData(filter, param) {
   const response = await fetch('http://localhost:3000/api/' + filter + '/' + param, { method: 'GET' })
     .then((res) => {
@@ -77,6 +78,7 @@ async function getData(filter, param) {
 
 }
 
+// event listener for the dropdown menu. When the value is changed, the table is cleared and the new data is fetched.
 sec.addEventListener('change', (e) => {
   table.innerHTML = ''
   getData('sec', e.target.value)
